@@ -1,12 +1,26 @@
-import React from 'react';
-import { StyleSheet, Text, View } from 'react-native';
-
+import React, {Component} from 'react';
+import {StyleSheet,Text, View,StatusBar} from 'react-native';
+import {Provider} from "react-redux";
+import { PersistGate } from 'redux-persist/integration/react'
+global.serverURL ='https://alrayamis.com/';
+global.RecordToshow =10; 
+import Main from "./src/Main";
+import persist from "./src/config/store";
+import { YellowBox } from 'react-native';
+const persistStore = persist();
+YellowBox.ignoreWarnings(['Remote debugger']);
+console.disableYellowBox = true;
 export default function App() {
-  return (
-    <View style={styles.container}>
-      <Text>Open up App.js to start working on your app!</Text>
-    </View>
-  );
+
+    return (
+
+      <Provider store={persistStore.store}>
+        <PersistGate loading={null} persistor={persistStore.persistor}>
+            <Main />
+        </PersistGate>
+      </Provider>
+    );
+
 }
 
 const styles = StyleSheet.create({

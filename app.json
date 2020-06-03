@@ -1,7 +1,7 @@
 {
   "expo": {
-    "name": "missmartservices",
-    "slug": "missmartservices",
+    "name": "MIS Smart Services",
+    "slug": "mis-smart-services",
     "platforms": [
       "ios",
       "android",
@@ -23,6 +23,16 @@
     ],
     "ios": {
       "supportsTablet": true
+    },
+    "description": "",
+    "web": {
+      "build": {
+        "babel": {
+          "include": [
+            "galio-framework"
+          ]
+        }
+      }
     }
   }
 }
